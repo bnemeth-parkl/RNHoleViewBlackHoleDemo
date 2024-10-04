@@ -41,28 +41,22 @@ function Section({children, title}) {
 }
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'light';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   const [animation, setAnimation] = useState({...animationSettings});
 
   return (
     <>
-      <SafeAreaView style={backgroundStyle}>
+      <SafeAreaView style={{backgroundColor: Colors.lighter}}>
         <StatusBar
-          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-          backgroundColor={backgroundStyle.backgroundColor}
+          barStyle={'dark-content'}
+          backgroundColor={Colors.lighter}
         />
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
-          style={backgroundStyle}>
+          style={{backgroundColor: Colors.lighter}}>
           <Header />
           <View
             style={{
-              backgroundColor: isDarkMode ? Colors.black : Colors.white,
+              backgroundColor: Colors.white,
             }}>
             <Section title="Step One">
               Edit <Text style={styles.highlight}>App.tsx</Text> to change this
